@@ -18,8 +18,6 @@ for i = 1:length(contents)
    images{1, i} = imread(im_path);
 end
 
-%initialize position to keep track of current item
-current_pos = 1;
 %% Create and program the GUI
 
 %create and hide the GUI
