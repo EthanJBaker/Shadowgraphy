@@ -5,9 +5,9 @@
 %name of a directory that is a subfolder of MATLAB\res (this is where we
 %will save the camera images).
 
-%dir_name : name of the folder where the photos are stored
-%path : the relative path of the folder
-%contents : struct array containing data about each file in the folder
+%input dir_name : name of the folder where the photos are stored
+%output s : the average image
+
 
 function s=average_images(dir_name)
 %directory is a subfolder of ~\res, where ~ is the working directory
@@ -34,31 +34,7 @@ for i = 1:length(contents)
     im = double(im);
     %add to running sum   
     s = s + im;
-    
-    %this block below will find the edge response, fill in any holes, and
-    %display the image. 
-    %[ed, thresh] = edge(im, 'LoG', 2.03e-4,  2.5);
-    %fill = imfill(ed, 'holes');
-    %figure;imshow(fill);
-    %title(contents(i).name);
 end
-s = s/length(contents);
+s = s/length(contents); %divide by the number of images
 figure;imshow(s);title('Average Image');
-for i = 1:length(contents)
-    %read image
-    im = imread([path '\' contents(i).name]);
-    im = double(im);
-    %add to running sum   
-    new_im = im - s;
-    figure; 
-    subplot(2,1,1), imshow(im, [0 255]), title('Original');
-    subplot(2,1,2), imshow(new_im, [0 255]), title('Background Removed');
-    %this block below will find the edge response, fill in any holes, and
-    %display the image. 
-    %[ed, thresh] = edge(im, 'LoG', 2.03e-4,  2.5);
-    %fill = imfill(ed, 'holes');
-    %figure;imshow(fill);
-    %title(contents(i).name);
-end
-close all
 end
