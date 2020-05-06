@@ -1,9 +1,5 @@
-%This script takes in the name of a directory and loops through each file
-%in the directory, displaying each photo. 
+%This script takes in the name of a directory and computes the average of the images within.
 
-%The argument is the
-%name of a directory that is a subfolder of MATLAB\res (this is where we
-%will save the camera images).
 
 %input dir_name : name of the folder where the photos are stored
 %output s : the average image
