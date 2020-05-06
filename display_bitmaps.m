@@ -35,8 +35,6 @@ for i = 1:length(contents)
     %[ed, thresh] = edge(im, 'LoG', 2.03e-4,  2.5);
     %fill = imfill(ed, 'holes');
     %figure;imshow(fill);
-    
-    
     %title(contents(i).name);
 end
 pause(2);

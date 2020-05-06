@@ -27,24 +27,24 @@ f = figure('Visible', 'off');
 hnext = uicontrol('Style', 'pushbutton', 'String', 'Next', 'Position', [350, 20, 70, 25], 'Callback',{@nextbutton_Callback});
 hprev = uicontrol('Style', 'pushbutton', 'String', 'Prev', 'Position', [150, 20, 70, 25], 'Callback',{@prevbutton_Callback});
 htext = uicontrol('Style','text','String',strcat("file ", string(i),"/", string(length(images))),'Position',[400,400,100,15]);
-him = imshow(images{1, i}); title(contents(i).name, 'Interpreter', 'none');
-align([hnext, hprev], 'None', 'Center');
+him = imshow(images{1, i}); title(contents(i).name, 'Interpreter', 'none');%display the current image
+align([hnext, hprev], 'None', 'Center'); %align the next and previous buttons
 
 %% program callbacks
 function nextbutton_Callback(source,eventdata) 
 % Display the next image in the list
-     i = i+1;
-     i = mod(i, length(images));
-     him = imshow(images{1, i}); title(contents(i).name, 'Interpreter', 'none');
-     htext.String = strcat("file ", string(i),"/", string(length(images)));
+     i = i+1; i = mod(i, length(images)); %update current position in the list, account for overflow
+     him = imshow(images{1, i}); title(contents(i).name, 'Interpreter', 'none'); %display the image and give it a title
+     htext.String = strcat("file ", string(i),"/", string(length(images)));	%update the image number diplay
 
 end
 
 function prevbutton_Callback(source,eventdata) 
 % Display the previous image in the list
-    i = i-1;
-    i = mod(i, length(images));
+    i = i-1; i = mod(i, length(images)); %update current position in the list, account for overflow
+    %display the image and give it a title
     him = imshow(images{1, i}); title(contents(i).name, 'Interpreter', 'none');
+	%update the image number diplay
     htext.String = strcat("file ", string(i),"/", string(length(images)));
 
 end

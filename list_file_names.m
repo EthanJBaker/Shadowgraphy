@@ -1,15 +1,9 @@
-%This script takes in the name of a directory and loops through each file
-%in the directory, printing out the name of each file. This script is
-%intended to be run from the command prompt. 
-
-%The argument is the
-%name of a directory that is a subfolder of MATLAB\res (this is where we
-%will save the camera images).
+%This script loops through every file in a folder and lists the file names. 
+%It serves as template code for looping through a folder and acting on each file within.
 
 %dir_path : path to the folder where the photos are stored (must be a sub
 %folder of ~\res
-%path : the relative path of the folder
-%contents : struct array containing data about each file in the folder
+t each file in the folder
 
 function []=list_file_names(dir_path)
 

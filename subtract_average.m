@@ -1,13 +1,6 @@
-%This script takes in the name of a directory and loops through each file
-%in the directory, displaying each photo. 
+%This script takes the average of all the images in the folder, and then substracts this average from each image in the folder. 
+%This script is largely used for experimentation with the average image and background subtraction. It is not used to process test images. 
 
-%The argument is the
-%name of a directory that is a subfolder of MATLAB\res (this is where we
-%will save the camera images).
-
-%dir_name : name of the folder where the photos are stored
-%path : the relative path of the folder
-%contents : struct array containing data about each file in the folder
 
 function s=subtract_average(dir_name)
 %directory is a subfolder of ~\res, where ~ is the working directory
